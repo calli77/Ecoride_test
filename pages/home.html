@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRide - Covoiturage Écologique</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="eco">ECO</span><span class="ride">RIDE</span>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" onclick="showPage('home')">Accueil</a></li>
+                    <li><a href="#" onclick="showPage('covoiturages')">Covoiturages</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    <li><a href="#" class="btn-connexion">Connexion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page d'accueil -->
+    <div id="home-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Ensemble,<br>Roulez pour la<br>Planète</h1>
+                    <p>Rejoignez la révolution du covoiturage écologique. Partagez vos trajets, réduisez votre empreinte carbone et voyagez économique tout en protégeant notre planète pour les générations futures.</p>
+                </div>
+                <div class="search-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Ville de départ" id="departure">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Ville d'arrivée" id="arrival">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="date">
+                    </div>
+                    <div class="form-group">
+                        <select id="passengers">
+                            <option>1 passager</option>
+                            <option>2 passagers</option>
+                            <option>3 passagers</option>
+                            <option>4 passagers</option>
+                        </select>
+                    </div>
+                    <button class="btn-search" onclick="searchRides()">Rechercher</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Qui sommes nous ?</h2>
+                        <p>EcoRide est une jeune startup française qui s'est donnée pour mission de révolutionner les déplacements en promouvant le covoiturage écologique et économique. Une plateforme qui soit simple à utiliser et qui s'inscrive dans une démarche écoresponsable, c'est notre promesse afin de réduire l'impact carbone et partager les frais.</p>
+                    </div>
+                    <div class="about-image">
+                        🤝
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card eco">
+                        <div class="feature-icon">🌱</div>
+                        <h3>Un covoiturage écologique</h3>
+                        <p>EcoRide s'engage à réduire l'empreinte carbone en favorisant les véhicules électriques et en optimisant les trajets partagés pour une mobilité plus verte et responsable.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚗</div>
+                        <h3>Voyagez en toute sécurité</h3>
+                        <p>EcoRide est la solution idéale pour un covoiturage à la fois écologique et sécurisé. La plateforme met l'accent sur la responsabilité et garantit ainsi une expérience de voyage sereine et éthique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page des covoiturages -->
+    <div id="covoiturages-page" class="hidden">
+        <div class="main-content">
+            <section class="covoiturages-section">
+                <div class="container">
+                    <div class="search-header">
+                        <div class="search-summary">
+                            <div class="search-details">
+                                <h2 id="search-route">Paris, France → Montpellier, France</h2>
+                                <p id="search-date">mardi 17.01 - 1 passager</p>
+                            </div>
+                            <button class="modify-search" onclick="showPage('home')">Modifier</button>
+                        </div>
+                    </div>
+
+                    <div class="results-container">
+                        <div class="rides-list">
+                            <!-- Trajet 1 -->
+                            <div class="ride-card">
+                                <div class="ride-header">
+                                    <div class="ride-places">2 places</div>
+                                    <div class="ride-price">73,23 €</div>
+                                </div>
+                                
+                                <div class="ride-route">
+                                    <div class="route-point">
+                                        <div class="route-time">07:30</div>
+                                        <div class="route-city">Paris</div>
+                                    </div>
+                                    <div class="route-line">
+                                        <div class="route-duration">07h00</div>
+                                    </div>
+                                    <div class="route-point">
+                                        <div class="route-time">14:30</div>
+                                        <div class="route-city">Marseillan</div>
+                                    </div>
+                                </div>
+
+                                <div class="ride-driver">
+                                    <div class="driver-avatar">J</div>
+                                    <div class="driver-info">
+                                        <div class="driver-name">Jean</div>
+                                        <div class="driver-rating">★ 4,7</div>
+                                    </div>
+                                    <div class="eco-badge">
+                                        🌱 Véhicule écologique
+                                    </div>
+                                </div>
+
+                                <button class="btn-detail" onclick="showDetail('jean')">Détail</button>
+                            </div>
+
+                            <!-- Trajet 2 -->
+                            <div class="ride-card">
+                                <div class="ride-header">
+                                    <div class="ride-places">1 place</div>
+                                    <div class="ride-price">76,19 €</div>
+                                </div>
+                                
+                                <div class="ride-route">
+                                    <div class="route-point">
+                                        <div class="route-time">07:40</div>
+                                        <div class="route-city">Paris</div>
+                                    </div>
+                                    <div class="route-line">
+                                        <div class="route-duration">07h00</div>
+                                    </div>
+                                    <div class="route-point">
+                                        <div class="route-time">14:40</div>
+                                        <div class="route-city">Agde</div>
+                                    </div>
+                                </div>
+
+                                <div class="ride-driver">
+                                    <div class="driver-avatar">L</div>
+                                    <div class="driver-info">
+                                        <div class="driver-name">Lise</div>
+                                        <div class="driver-rating">★ 5,0</div>
+                                    </div>
+                                </div>
+
+                                <button class="btn-detail" onclick="showDetail('lise')">Détail</button>
+                            </div>
+
+                            <!-- Trajet 3 -->
+                            <div class="ride-card">
+                                <div class="ride-header">
+                                    <div class="ride-places">3 places</div>
+                                    <div class="ride-price">68,07 €</div>
+                                </div>
+                                
+                                <div class="ride-route">
+                                    <div class="route-point">
+                                        <div class="route-time">08:00</div>
+                                        <div class="route-city">Paris</div>
+                                    </div>
+                                    <div class="route-line">
+                                        <div class="route-duration">07h20</div>
+                                    </div>
+                                    <div class="route-point">
+                                        <div class="route-time">15:20</div>
+                                        <div class="route-city">Montpellier</div>
+                                    </div>
+                                </div>
+
+                                <div class="ride-driver">
+                                    <div class="driver-avatar">P</div>
+                                    <div class="driver-info">
+                                        <div class="driver-name">Pierre</div>
+                                        <div class="driver-rating">★ 4,5</div>
+                                    </div>
+                                    <div class="eco-badge">
+                                        🌱 Véhicule écologique
+                                    </div>
+                                </div>
+
+                                <button class="btn-detail" onclick="showDetail('pierre')">Détail</button>
+                            </div>
+                        </div>
+
+                        <!-- Filters Panel -->
+                        <div class="filters-panel">
+                            <h3>Filtrer</h3>
+                            <div class="filter-group">
+                                <h4>Trier selon</h4>
+                                <label>
+                                    <input type="radio" name="sort" value="eco">
+                                    Véhicule écologique
+                                </label>
+                                <label>
+                                    <input type="radio" name="sort" value="price">
+                                    Prix (le plus bas)
+                                </label>
+                                <label>
+                                    <input type="radio" name="sort" value="duration">
+                                    Durée (la moins longue)
+                                </label>
+                                <label>
+                                    <input type="radio" name="sort" value="rating">
+                                    Note
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Page de détail -->
+    <div id="detail-page" class="hidden">
+        <div class="main-content">
+            <section class="detail-section">
+                <div class="container">
+                    <div class="detail-header">
+                        <div class="route-visual">
+                            <div class="route-point">
+                                <div class="route-time">07:30</div>
+                                <div class="route-city">Paris</div>
+                            </div>
+                            <div class="route-line">
+                                <div class="route-duration">07h00</div>
+                            </div>
+                            <div class="route-point">
+                                <div class="route-time">14:30</div>
+                                <div class="route-city">Marseillan</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="price-section">
+                            <div>
+                                <strong>2 places</strong>
+                            </div>
+                            <div class="ride-price">73,23 €</div>
+                            <button class="contact-btn">🗨 Contacter Jean</button>
+                        </div>
+
+                        <div class="driver-section">
+                            <div class="driver-avatar-large">J</div>
+                            <div class="driver-info">
+                                <div class="driver-name" style="font-size: 1.2rem;">Jean 🌱</div>
+                                <div class="driver-rating">★ 4,7/5 - 175 avis</div>
+                                <div style="margin-top: 10px;">
+                                    <button style="background: none; border: none; color: #666; cursor: pointer;">></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                            <p style="color: #666; font-style: italic;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+
+                        <div class="preferences-grid">
+                            <div class="preference-item">
+                                <span>🌱</span>
+                                <span>Véhicule écologique</span>
+                            </div>
+                            <div class="preference-item">
+                                <span>⚡</span>
+                                <span>Électrique</span>
+                            </div>
+                            <div class="preference-item">
+                                <span>🐕</span>
+                                <span>Ami des animaux</span>
+                            </div>
+                            <div class="preference-item">
+                                <span>🚗</span>
+                                <span>Ford Puma - Gris anthracite</span>
+                            </div>
+                            <div class="preference-item">
+                                <span>🚭</span>
+                                <span>Non fumeur</span>
+                            </div>
+                            <div class="preference-item">
+                                <span>🎵</span>
+                                <span>Music durant le trajet</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-participate">Participer</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="eco">ECO</span><span class="ride">RIDE</span>
+                </div>
+                <div class="footer-links">
+                    <span>contact@ecoride.fr</span>
+                    <a href="#">Mentions légales</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2025 ©</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation entre les pages
+        function showPage(pageName) {
+            // Cacher toutes les pages
+            const pages = ['home-page', 'covoiturages-page', 'detail-page'];
+            pages.forEach(page => {
+                document.getElementById(page).classList.add('hidden');
+            });
+
+            // Afficher la page demandée
+            document.getElementById(pageName + '-page').classList.remove('hidden');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Fonction de recherche
+        function searchRides() {
+            const departure = document.getElementById('departure').value;
+            const arrival = document.getElementById('arrival').value;
+            const date = document.getElementById('date').value;
+            const passengers = document.getElementById('passengers').value;
+
+            if (!departure || !arrival || !date) {
+                alert('Veuillez remplir tous les champs de recherche');
+                return;
+            }
+
+            // Mettre à jour les informations de recherche
+            document.getElementById('search-route').textContent = `${departure} → ${arrival}`;
+            
+            // Formater la date
+            const dateObj = new Date(date);
+            const options = { weekday: 'long', day: '2-digit', month: '2-digit' };
+            const formattedDate = dateObj.toLocaleDateString('fr-FR', options);
+            document.getElementById('search-date').textContent = `${formattedDate} - ${passengers}`;
+
+            // Afficher la page des covoiturages
+            showPage('covoiturages');
+        }
+
+        // Afficher le détail d'un covoiturage
+        function showDetail(driverName) {
+            showPage('detail');
+        }
+
+        // Initialisation de la date à aujourd'hui
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                dateInput.value = today.toISOString().split('T')[0];
+            }
+        });
+
+        // Gestion du menu mobile (à développer si nécessaire)
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('show');
+        }
+
+        // Smooth scroll pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation au scroll (optionnel)
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.feature-card, .about-content, .ride-card');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialiser les animations
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Filtres des covoiturages
+        document.querySelectorAll('input[name="sort"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                console.log('Tri sélectionné:', this.value);
+                // Ici vous pourrez implémenter la logique de tri
+                // sortRides(this.value);
+            });
+        });
+
+        // Fonction pour trier les trajets (à implémenter avec le backend)
+        function sortRides(criteria) {
+            // Cette fonction sera connectée à votre API backend
+            console.log('Tri par:', criteria);
+        }
+
+        // Validation du formulaire de recherche
+        function validateSearchForm() {
+            const departure = document.getElementById('departure').value.trim();
+            const arrival = document.getElementById('arrival').value.trim();
+            const date = document.getElementById('date').value;
+
+            if (departure === arrival) {
+                alert('La ville de départ et d\'arrivée ne peuvent pas être identiques');
+                return false;
+            }
+
+            const selectedDate = new Date(date);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            if (selectedDate < today) {
+                alert('Vous ne pouvez pas rechercher un trajet dans le passé');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Auto-complétion des villes (à connecter avec une API)
+        function setupCityAutocomplete() {
+            const cities = ['Paris', 'Lyon', 'Marseille', 'Toulouse', 'Nice', 'Nantes', 'Strasbourg', 'Montpellier', 'Bordeaux', 'Lille'];
+            
+            const departureInput = document.getElementById('departure');
+            const arrivalInput = document.getElementById('arrival');
+            
+            [departureInput, arrivalInput].forEach(input => {
+                if (input) {
+                    input.addEventListener('input', function() {
+                        const value = this.value.toLowerCase();
+                        // Ici vous pourrez implémenter l'auto-complétion
+                        // avec une vraie API de géolocalisation
+                    });
+                }
+            });
+        }
+
+        // Initialiser l'auto-complétion
+        document.addEventListener('DOMContentLoaded', setupCityAutocomplete);
+
+        // Gestion des erreurs réseau (pour plus tard)
+        function handleNetworkError(error) {
+            console.error('Erreur réseau:', error);
+            // Afficher un message d'erreur à l'utilisateur
+        }
+
+        // Fonction pour formater les prix
+        function formatPrice(price) {
+            return new Intl.NumberFormat('fr-FR', {
+                style: 'currency',
+                currency: 'EUR'
+            }).format(price);
+        }
+
+        // Fonction pour calculer la durée entre deux heures
+        function calculateDuration(startTime, endTime) {
+            const start = new Date(`2000-01-01 ${startTime}`);
+            const end = new Date(`2000-01-01 ${endTime}`);
+            const diff = end - start;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            return `${hours}h${minutes.toString().padStart(2, '0')}`;
+        }
+
+        // Gestion du bouton "Participer"
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn-participate')) {
+                // Vérifier si l'utilisateur est connecté
+                const isLoggedIn = false; // À connecter avec votre système d'auth
+                
+                if (!isLoggedIn) {
+                    if (confirm('Vous devez être connecté pour participer à un covoiturage. Souhaitez-vous vous connecter ?')) {
+                        // Rediriger vers la page de connexion
+                        window.location.href = '/login';
+                    }
+                } else {
+                    // Afficher la modal de confirmation
+                    showParticipationModal();
+                }
+            }
+        });
+
+        // Modal de participation (à implémenter)
+        function showParticipationModal() {
+            alert('Fonctionnalité à implémenter : Modal de confirmation de participation');
+        }
+    </script>
+</body>
+</html>

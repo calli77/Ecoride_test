@@ -3,9 +3,9 @@ $request = $_SERVER['REQUEST_URI'];
 $path = parse_url($request, PHP_URL_PATH);
 $path = trim($path, 'Ecoride/');
 
-// Routes définies
+
 $routes = [
- '' => "pages/home.html"
+ '' => "pages/accueil.html"
 ];
 
 if (array_key_exists($path, $routes)) {
